@@ -1,0 +1,55 @@
+# I am old fashioned. I like to see what is happening especially
+# when I am new to something.  So, I could not find any examples
+# on the internet that showed how to read a json configuration 
+# file and show the real interfaces behind it.  Anyway, I am
+# just learning C# and this worked well for me.  As I did this,
+# I learned to find the .Net Core doc online and chase the various
+# methods and interfaces returned.
+# https://docs.microsoft.com/en-us/dotnet/api/system.configuration?view=netcore-2.2
+# https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configuration?view=netcore-2.2#remarks
+
+
+# I created the project from the repository directory using:
+dotnet new console --name console02
+
+# Now build it:
+dotnet build console02/console02.csproj
+# Now run it:
+dotnet run --project console02/console02.csproj 
+
+# Now the fun begins! lol
+cd console02
+
+# Microsoft.Extensions.Configuration – enables 
+#       key-value pair based configuations
+dotnet add console02.csproj package Microsoft.Extensions.Configuration
+
+# Microsoft.Extensions.Configuration.FileExtensions
+#       – Extension methods for configuring file-based 
+#           configuration providers (ie INI, Json, Xml)  
+dotnet add console02.csproj package Microsoft.Extensions.Configuration.FileExtensions
+
+# Microsoft.Extensions.Configuration.Json
+#       - JSON Configuration Provider
+dotnet add console02.csproj package Microsoft.Extensions.Configuration.Json
+
+# Now restore those packages.
+dotnet restore console02.csproj
+
+# At this point, I updated Program.cs and added appsettings.json.
+
+# Then I ran build and run until I got it working.
+dotnet build console02.csproj
+dotnet run --project console02.csproj
+
+# The output should look like:
+config is a ConfigurationRoot
+Application Name1: Bob
+Type is: ConfigurationSection
+Application Name2: Bob
+
+
+
+
+
+

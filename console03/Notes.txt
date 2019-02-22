@@ -1,0 +1,48 @@
+# This is a study in how to bind a configuration file or portion of it
+# to a class for typed values from the configuration file.
+# https://docs.microsoft.com/en-us/dotnet/api/system.configuration?view=netcore-2.2
+# https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configuration?view=netcore-2.2#remarks
+# https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.configurationbinder?view=aspnetcore-2.2
+
+# I created the project from the repository directory using:
+dotnet new console --name console03
+
+# Now build it:
+dotnet build console03/console03.csproj
+# Now run it:
+dotnet run --project console03/console03.csproj 
+
+# Now the fun begins! lol
+cd console03
+
+# Microsoft.Extensions.Configuration – enables 
+#       key-value pair based configuations
+dotnet add console03.csproj package Microsoft.Extensions.Configuration
+
+# Microsoft.Extensions.Configuration.FileExtensions
+#       – Extension methods for configuring file-based 
+#           configuration providers (ie INI, Json, Xml)  
+dotnet add console03.csproj package Microsoft.Extensions.Configuration.FileExtensions
+
+# Microsoft.Extensions.Configuration.Json
+#       - JSON Configuration Provider
+dotnet add console03.csproj package Microsoft.Extensions.Configuration.Json
+
+# Microsoft.Extensions.Configuration.Binder
+#       - Bind a Configuration to a provided class 
+dotnet add console03.csproj package Microsoft.Extensions.Configuration.Binder
+
+# Now restore those packages.
+
+# Now the fun begins! lol
+# Copied in the appsettings.json from console02
+# edited Program.cs to use the extensions and provide the classes needed.
+
+# Ran until debugged:
+dotnet build console03.csproj
+dotnet run --project console03.csproj
+
+# Output should look like:
+builder is a ConfigurationBuilder
+config is a ConfigurationRoot
+Name: Bob
