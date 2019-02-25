@@ -1,0 +1,11 @@
+# This is a study in how access and build databases using
+# Microsoft SQL Server running in Docker.
+
+
+
+# I created the project using:
+mkdir console04
+cd    console04
+dotnet new console
+
+

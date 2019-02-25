@@ -1,0 +1,45 @@
+I bought the book, "Teach yourself SQL in 10 minutes".  It is really 10 minutes
+per chapter.  Anyway, I downloaded his test data and incorporated into building
+the Docker Container that I want for testing.  The database did not directly
+run and I had to massage it a bit to get it to work.  The database did not
+contain copyright statements like Microsoft's Northwind.  I am assuming however
+that it is his database as if it was copyrighted.  I could not find a public
+domain sample database online.  So, I am slowly creating my own which will contain
+General Ledger, Accounts Receivable and other tables.
+
+Since I have never used "docker build" and don't have time to debug it.  I am
+using a bash script to build the container for now.  I learned the "docker cp"
+trick from looking at Microsoft's explanation of using their container. See
+https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash
+At the bottom of that page are references to two other pages that contain quite
+a bit of informative information as well.
+
+For now, I run "./setupMSSQL1.sh" from the myDatabase subdirectory to build
+a clean docker container, mssql1.  I then go into it using:
+        sudo docker exec -it mssql1 /bin/bash
+Once inside, I do:
+        cd rw
+        ./setup.sh                  # if I need view
+        ./load.sh                   # for my test myDatabase
+        cd TeachYourselfSQL_MySQL   # To load their database
+        ./create.sh
+        ./populate.sh
+        cd ..
+        ./runSQL.sh                 # To verify that the databases are there.
+        SELECT name from sys.Databases;
+        go                          # TSQL doesn't seem to do anything until you do "go"
+        quit
+        exit
+I might do other things in there, but that is the gist of what I normally do.
+
+Got the sample sql for "Teach yourself SQL in 10 minutes".  However, it doesn't work
+directly.  So, I am having to modify it to make it work.  I ran "/opt/mssql-tools/bin/sqlcmd -?"
+and found out some errors that I was making in running it.
+
+I can now recreate 3 sample databases in a docker MS Sql Server container from scratch.  So,
+testing is now easier.  However, I cannot include the two databases because one is copyrighted
+and you are only supposed to download it if you bought his book.  I have sent an email to the
+author of the second database and am waiting to hear his reply.  The two books that I am
+referring to are:
+        "Teach yourself SQL in 10 minutes" by Ben Forta, Pearson Education, Inc., 2013
+        "Microsoft Sql Server 2012 T-SQL Fundamentals" by Itzik Ben-Gan, Microsoft Press, 2012

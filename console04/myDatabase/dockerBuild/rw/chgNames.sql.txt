@@ -1,0 +1,6 @@
+SELECT @@SERVERNAME,
+    SERVERPROPERTY('ComputerNamePhysicalNetBIOS'),
+    SERVERPROPERTY('apple05'),
+    SERVERPROPERTY('mssql1');
+
+
