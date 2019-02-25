@@ -64,6 +64,16 @@ namespace console04
                 connection.ConnectionString = "Data Source=localhost,1401;Initial Catalog=TeachDB;User Id=sa;Password=Passw0rd!";
                 connection.Open();
                 WriteLine($"Connection Status: {connection.State}");
+                string selectStr = "SELECT * FROM dbo.Orders;";
+                //string selectStr = "SELECT * FROM dbo.Orders WHERE order_num = 20005;";
+                SqlCommand aCmd = new SqlCommand();
+                aCmd.Connection = connection;
+                aCmd.CommandText = selectStr;
+                SqlDataReader dataReader = aCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    WriteLine($"order_num: {dataReader["order_num"]}");
+                }
             }
 
             WriteLine("\n\nProgram Finished!");

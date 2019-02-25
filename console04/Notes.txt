@@ -44,3 +44,22 @@ dotnet run --project console04.csproj
 # worked to open a connection.
 dotnet run --project console04.csproj
 
+# After I got connected, it was pretty easy to develop a select that provided
+# some data.
+dotnet run --project console04.csproj
+# So, when I run it, I get:
+builder is a ConfigurationBuilder
+config is a ConfigurationRoot
+Name: Bob
+UserID: SA
+PW: Passw0rd!
+Connection Status: Open
+order_num: 20005
+order_num: 20006
+order_num: 20007
+order_num: 20008
+order_num: 20009
+
+
+Program Finished!
+# Excellent!
