@@ -39,7 +39,13 @@ and found out some errors that I was making in running it.
 I can now recreate 3 sample databases in a docker MS Sql Server container from scratch.  So,
 testing is now easier.  However, I cannot include the two databases because one is copyrighted
 and you are only supposed to download it if you bought his book.  I have sent an email to the
-author of the second database and am waiting to hear his reply.  The two books that I am
-referring to are:
+author of the second database and am waiting to hear his reply.  He responded with:
+
+"Absolutely, those database examples are downloadable by all and free to use as you need.
+ You are free to post and use them as needed."
+
+So, I am including them in this repository and a big thank you to Ben Forta.
+
+The two books that I am referring to are:
         "Teach yourself SQL in 10 minutes" by Ben Forta, Pearson Education, Inc., 2013
         "Microsoft Sql Server 2012 T-SQL Fundamentals" by Itzik Ben-Gan, Microsoft Press, 2012
