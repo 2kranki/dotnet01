@@ -29,7 +29,7 @@ namespace console03
     {
         static void Main(string[] args)
         {
-     // Build key/value based configuration settings for use
+            // Build key/value based configuration settings for use
             // in an application from the json file.
             IConfigurationBuilder builder = new ConfigurationBuilder()
                     .SetBasePath(Directory.GetCurrentDirectory())

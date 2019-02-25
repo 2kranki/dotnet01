@@ -1,11 +1,46 @@
 # This is a study in how access and build databases using
-# Microsoft SQL Server running in Docker.
+# Microsoft SQL Server running in Docker.  For this program,
+# We will use ADO.NET.
 
 
 
 # I created the project using:
 mkdir console04
 cd    console04
-dotnet new console
+dotnet new console04
+dotnet run --project console04.csproj
+# I got "Hello, World!"  
 
+# Microsoft.Extensions.Configuration – enables 
+#       key-value pair based configuations
+dotnet add console04.csproj package Microsoft.Extensions.Configuration
+
+# Microsoft.Extensions.Configuration.FileExtensions
+#       – Extension methods for configuring file-based 
+#           configuration providers (ie INI, Json, Xml)  
+dotnet add console04.csproj package Microsoft.Extensions.Configuration.FileExtensions
+
+# Microsoft.Extensions.Configuration.Json
+#       - JSON Configuration Provider
+dotnet add console04.csproj package Microsoft.Extensions.Configuration.Json
+
+# Microsoft.Extensions.Configuration.Binder
+#       - Bind a Configuration to a provided class 
+dotnet add console04.csproj package Microsoft.Extensions.Configuration.Binder
+
+# We need access to ADO.NET. So we must also add:
+dotnet add console04.csproj package System.Data.Common
+dotnet add console04.csproj package System.Data.Sql
+dotnet add console04.csproj package System.Data.SqlClient
+dotnet add console04.csproj package System.Data.SqlTypes
+# See https://stackoverflow.com/questions/38510740/is-ado-net-in-net-core-possible
+
+# I copied in most of the logic from console03 as well as the appsettings.json file.
+dotnet run --project console04.csproj
+# Gave me "Name: Bob".  So I know that that is working.
+
+# I ended up just hard coding the connection string in the program to get it going.
+# After several attempts, I found via that stackoverflow article a string which
+# worked to open a connection.
+dotnet run --project console04.csproj
 

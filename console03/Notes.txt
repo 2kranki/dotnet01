@@ -9,8 +9,8 @@ dotnet new console --name console03
 
 # Now build it:
 dotnet build console03/console03.csproj
-# Now run it:
-dotnet run --project console03/console03.csproj 
+# Now run it:dotnet run --project console03/console03.csproj
+ 
 
 # Now the fun begins! lol
 cd console03
